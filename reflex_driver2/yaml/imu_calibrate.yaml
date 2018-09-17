@@ -1,5 +1,5 @@
 # Opened file successfully
-imu_calibration_data_f1: [188, 15, 120, 0, 0, 0, 0, 0, 0, 0, 0]
-imu_calibration_data_f2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-imu_calibration_data_f3: [52, 57, 162, 53, 0, 0, 0, 0, 0, 0, 0]
-imu_calibration_data_palm: [229, 217, 23, 190, 0, 0, 0, 0, 0, 0, 0]
+imu_calibration_data_f1: [7, 65512, 65516, 65519, 155, 65528, 65534, 0, 65535, 1000, 737]
+imu_calibration_data_f2: [65493, 65500, 65534, 65421, 207, 504, 0, 1, 65534, 1000, 0]
+imu_calibration_data_f3: [65535, 36, 65528, 65467, 21, 65488, 65534, 0, 1, 1000, 765]
+imu_calibration_data_palm: [65472, 65533, 8, 63035, 2505, 63582, 1, 2, 0, 1000, 737]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
  
-# Example code for a script using the ReFlex Takktile hand
+# Example code for a script using the ReFlex plus hand
 # Note: you must connect a hand by running "roslaunch reflex reflex.launch" before you can run this script
  
  
@@ -14,9 +14,7 @@ from reflex_msgs.msg import PoseCommand
 from reflex_msgs.msg import VelocityCommand
 from reflex_msgs.msg import ForceCommand
 from reflex_msgs.msg import Hand
-from reflex_msgs.msg import FingerPressure
-from reflex_msgs.srv import SetTactileThreshold, SetTactileThresholdRequest
- 
+
  
 hand_state = Hand()
  
@@ -26,22 +24,17 @@ def main():
     rospy.init_node('ExampleHandNode')
  
     # Services can automatically call hand calibration
-    calibrate_fingers = rospy.ServiceProxy('/reflex_takktile/calibrate_fingers', Empty)
-    calibrate_tactile = rospy.ServiceProxy('/reflex_takktile/calibrate_tactile', Empty)
+    calibrate_fingers = rospy.ServiceProxy('/reflex_plus/calibrate_fingers', Empty)
      
-    # Services can set tactile thresholds and enable tactile stops
-    enable_tactile_stops = rospy.ServiceProxy('/reflex_takktile/enable_tactile_stops', Empty)
-    disable_tactile_stops = rospy.ServiceProxy('/reflex_takktile/disable_tactile_stops', Empty)
-    set_tactile_threshold = rospy.ServiceProxy('/reflex_takktile/set_tactile_threshold', SetTactileThreshold)
  
     # This collection of publishers can be used to command the hand
-    command_pub = rospy.Publisher('/reflex_takktile/command', Command, queue_size=1)
-    pos_pub = rospy.Publisher('/reflex_takktile/command_position', PoseCommand, queue_size=1)
-    vel_pub = rospy.Publisher('/reflex_takktile/command_velocity', VelocityCommand, queue_size=1)
-    force_pub = rospy.Publisher('/reflex_takktile/command_motor_force', ForceCommand, queue_size=1)
+    command_pub = rospy.Publisher('/reflex_plus/command', Command, queue_size=1)
+    pos_pub = rospy.Publisher('/reflex_plus/command_position', PoseCommand, queue_size=1)
+    vel_pub = rospy.Publisher('/reflex_plus/command_velocity', VelocityCommand, queue_size=1)
+    force_pub = rospy.Publisher('/reflex_plus/command_motor_force', ForceCommand, queue_size=1)
  
     # Constantly capture the current hand state
-    rospy.Subscriber('/reflex_takktile/hand_state', Hand, hand_state_cb)
+    rospy.Subscriber('/reflex_plus/hand_state', Hand, hand_state_cb)
  
     ##################################################################################################################
     # Calibrate the fingers (make sure hand is opened in zero position)
